@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Undangan Tasyakuran Aqiqah - Qonita Hanasya Diransyah</title>
+  
+  <!-- OpenGraph Metadata untuk WhatsApp Preview -->
+  <meta property="og:title" content="Tasyakuran Aqiqah - Qonita Hanasya Diransyah">
+  <meta property="og:description" content="Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara tasyakuran aqiqah buah hati kami.">
+  <meta property="og:image" content="img/background_floral.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Alex Brush, Cormorant Garamond, Plus Jakarta Sans, Scheherazade New -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Scheherazade+New:wght@600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Audio Player Button -->
+  <div id="audio-control" class="audio-btn hide" onclick="toggleAudio()" title="Putar/Hentikan Musik">
+    <i class="fa-solid fa-compact-disc disc-spin"></i>
+  </div>
+  <audio id="bg-audio" loop preload="auto">
+    <!-- Musik instrumen lembut -->
+    <source src="https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Container Layar Mobile-First -->
+  <div class="app-container">
+
+    <!-- ==============================================
+         LAYER 1: COVER PEMBUKA (FULLSCREEN)
+         ============================================== -->
+    <section id="cover-layer" class="cover-layer">
+      <!-- Animated Floating Butterflies -->
+      <div class="butterfly-container">
+        <span class="butterfly b1">🦋</span>
+        <span class="butterfly b2">🦋</span>
+        <span class="butterfly b3">🌸</span>
+      </div>
+
+      <div class="cover-content">
+        <div class="cover-badge">TASYAKURAN AQIQAH</div>
+        <div class="cover-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        
+        <h1 class="baby-name-title">Qonita Hanasya Diransyah</h1>
+        <p class="baby-subtitle">Putri Tercinta Kami</p>
+
+        <!-- Kotak Nama Tamu Dinamis (?to=Nama+Tamu) -->
+        <div class="guest-card">
+          <p class="guest-prefix">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+          <h3 id="guest-name" class="guest-name">Tamu Undangan</h3>
+          <p class="guest-sub">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir</p>
+        </div>
+
+        <!-- Tombol Buka Undangan -->
+        <button id="btn-open" class="btn-open pulse-anim" onclick="openInvitation()">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          <span>Buka Undangan</span>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ==============================================
+         LAYER 2: KONTEN UTAMA (TEMA FLORAL SAMA - 1 LAYAR PAS)
+         ============================================== -->
+    <main id="main-layer" class="main-card-screen hidden-init">
+      
+      <!-- Animated Floating Butterflies & Hearts di Layer 2 -->
+      <div class="butterfly-container">
+        <span class="butterfly b-top">🦋</span>
+        <span class="butterfly b-bot">🦋</span>
+        <span class="floating-heart h1">💖</span>
+        <span class="floating-heart h2">🤍</span>
+        <span class="floating-heart h3">✨</span>
+      </div>
+
+      <div class="invitation-glass-card">
+        
+        <!-- Bismillah -->
+        <div class="bismillah-arabic">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
+
+        
+
+        <!-- Judul Tasyakuran Aqiqah Bergaya Floral Vintage -->
+        <div class="title-group">
+          <h2 class="title-tasyakuran">Tasyakuran</h2>
+          <h1 class="title-aqiqah">Aqiqah</h1>
+        </div>
+
+        <!-- Kalimat Pengantar -->
+        <p class="intro-message">
+          Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara tasyakuran aqiqah buah hati kami yang bernama:
+        </p>
+
+        <!-- Nama Sang Buah Hati dengan Hiasan Cinta & Daun -->
+        <div class="baby-main-highlight">
+          <span class="heart-decor">💕</span>
+          <h3 class="baby-name-text">Qonita Hanasya Diransyah</h3>
+          <span class="heart-decor">💕</span>
+        </div>
+
+        <!-- Love Divider Kecil -->
+        <div class="cute-love-divider">
+          <span>♡</span>
+          <span class="star-sparkle">✨</span>
+          <span>♡</span>
+        </div>
+
+        <!-- Kotak Informasi Waktu & Tempat Acara -->
+        <div class="event-box">
+          <div class="event-header-day">SABTU</div>
+          <div class="event-datetime-grid">
+            <div class="datetime-col month-col">Oktober</div>
+            <div class="datetime-col date-col">31</div>
+            <div class="datetime-col time-col">11.00 - Selesai</div>
+          </div>
+          <div class="event-location">
+            <i class="fa-solid fa-location-dot loc-icon"></i>
+            <span>Perumahan nyiur alam raya Blok A no. 13</span>
+          </div>
+          <a href="https://maps.app.goo.gl/yvg4iHH73RcAaCbz6" target="_blank" rel="noopener noreferrer" class="btn-maps">
+            <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps
+          </a>
+        </div>
+
+        <!-- Penutup / Yang Berbahagia -->
+        <div class="closing-group">
+          <p class="closing-label">Kami yang berbahagia,</p>
+          <p class="closing-family">Keluarga Besar Herdian Syah Permana</p>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Custom Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>

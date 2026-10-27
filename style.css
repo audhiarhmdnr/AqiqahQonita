@@ -1,0 +1,547 @@
+/* ===================================================
+   RESET & COLOR THEME TOKENS (VINTAGE FLORAL & BUTTERFLY)
+   =================================================== */
+:root {
+  --primary-pink: #d97d8f;
+  --dark-pink: #c25f73;
+  --soft-pink: #faedf0;
+  --pale-pink: #fff5f7;
+  --olive-green: #637748;
+  --dark-green: #41512e;
+  --text-dark: #3c3838;
+  --text-muted: #736d6d;
+  --gold-accent: #c5a059;
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(217, 125, 143, 0.32);
+  --font-arabic: 'Scheherazade New', serif;
+  --font-script: 'Alex Brush', cursive;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #e8e3dc;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  overflow: hidden; /* Mengunci halaman agar tidak bisa di-scroll */
+}
+
+/* Container Layar Mobile-First */
+.app-container {
+  width: 100%;
+  max-width: 440px;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.18);
+  background-color: #faf7f2;
+}
+
+/* ===================================================
+   LAYER 1: COVER PEMBUKA (FULLSCREEN OVERLAY)
+   =================================================== */
+.cover-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: url('img/background_floral.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 20px;
+  text-align: center;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.7s ease;
+}
+
+.cover-layer.slide-up {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cover-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 28px 20px;
+  border-radius: 26px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 35px rgba(99, 119, 72, 0.14);
+  width: 100%;
+  max-width: 360px;
+  position: relative;
+  z-index: 10;
+  animation: floatCard 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-6px); }
+}
+
+.cover-badge {
+  display: inline-block;
+  padding: 5px 16px;
+  background: var(--pale-pink);
+  color: var(--primary-pink);
+  border: 1px solid rgba(217, 125, 143, 0.35);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.cover-bismillah {
+  font-family: var(--font-arabic);
+  font-size: 1.35rem;
+  color: var(--olive-green);
+  margin-bottom: 6px;
+}
+
+.baby-name-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 1.2;
+  margin: 4px 0 2px;
+}
+
+.baby-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.guest-card {
+  background: #ffffff;
+  border: 1px dashed var(--primary-pink);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+}
+
+.guest-prefix {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.guest-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-pink);
+  margin: 4px 0;
+}
+
+.guest-sub {
+  font-size: 0.68rem;
+  color: #9c9494;
+  line-height: 1.3;
+}
+
+.btn-open {
+  background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+  color: #ffffff;
+  border: none;
+  padding: 13px 26px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(217, 125, 143, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.btn-open:hover {
+  transform: scale(1.03);
+}
+
+.pulse-anim {
+  animation: pulseButton 2s infinite;
+}
+
+@keyframes pulseButton {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 125, 143, 0.45); }
+  70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(217, 125, 143, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 125, 143, 0); }
+}
+
+/* Kupu-kupu animasi */
+.butterfly-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.butterfly {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0.75;
+}
+
+.b1 { top: 12%; left: 8%; animation: fly1 6s infinite alternate; }
+.b2 { top: 20%; right: 10%; animation: fly2 7s infinite alternate; }
+.b3 { bottom: 18%; left: 14%; animation: fly1 8s infinite alternate; }
+.b-top { top: 10%; right: 12%; animation: fly2 7s infinite alternate; }
+.b-bot { bottom: 12%; left: 10%; animation: fly1 6s infinite alternate; }
+
+/* Floating Hearts & Sparkles */
+.floating-heart {
+  position: absolute;
+  pointer-events: none;
+  font-size: 1.15rem;
+  opacity: 0.7;
+}
+
+.h1 { top: 22%; left: 12%; animation: floatHeart 5s ease-in-out infinite alternate; }
+.h2 { top: 40%; right: 10%; animation: floatHeart 6s ease-in-out infinite alternate 1s; }
+.h3 { bottom: 25%; right: 14%; animation: floatHeart 4.5s ease-in-out infinite alternate 0.5s; font-size: 1rem; }
+
+@keyframes floatHeart {
+  0% { transform: translateY(0px) scale(0.9) rotate(-5deg); opacity: 0.5; }
+  50% { transform: translateY(-12px) scale(1.1) rotate(6deg); opacity: 0.85; }
+  100% { transform: translateY(-20px) scale(0.95) rotate(-3deg); opacity: 0.4; }
+}
+
+@keyframes fly1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(18px, -18px) rotate(12deg); }
+}
+@keyframes fly2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-20px, 18px) rotate(-12deg); }
+}
+
+/* ===================================================
+   LAYER 2: KONTEN UTAMA (TEMA FLORAL SAMA - 1 SCREEN PAS)
+   =================================================== */
+.main-card-screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('img/background_floral.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 14px;
+  text-align: center;
+  overflow: hidden; /* Tidak bisa di-scroll, pas di layar */
+}
+
+.main-card-screen.hidden-init {
+  display: none;
+}
+
+.invitation-glass-card {
+  width: 100%;
+  max-width: 370px;
+  height: 94%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 35px rgba(99, 119, 72, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 14px 18px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Bismillah */
+.bismillah-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.55rem;
+  color: var(--dark-green);
+  line-height: 1.1;
+}
+
+/* Badge Bayi Lucu / Baby Princess Badge */
+.baby-cute-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff0f3;
+  color: var(--dark-pink);
+  border: 1px solid rgba(217, 125, 143, 0.4);
+  padding: 3px 14px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(217, 125, 143, 0.15);
+}
+
+.heart-beat {
+  color: var(--primary-pink);
+  font-size: 0.68rem;
+  animation: heartBeat 1.4s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+}
+
+/* Judul Tasyakuran Aqiqah */
+.title-group {
+  margin: 0;
+  line-height: 0.9;
+}
+
+.title-tasyakuran {
+  font-family: var(--font-script);
+  font-size: 2.85rem;
+  color: var(--primary-pink);
+  margin: 0;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.title-aqiqah {
+  font-family: var(--font-script);
+  font-size: 3.4rem;
+  color: var(--dark-pink);
+  margin: -10px 0 0 0;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Teks Pengantar */
+.intro-message {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-dark);
+  padding: 0 6px;
+}
+
+/* Highlight Nama Bayi */
+.baby-main-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 1px 0;
+}
+
+.heart-decor {
+  font-size: 0.95rem;
+  animation: heartGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes heartGlow {
+  0% { transform: scale(0.95); opacity: 0.75; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+.baby-name-text {
+  font-family: var(--font-serif);
+  font-size: 1.48rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 1.2;
+}
+
+/* Love Divider Kecil */
+.cute-love-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--primary-pink);
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: -2px 0 2px;
+}
+
+.star-sparkle {
+  font-size: 0.85rem;
+  animation: sparkleTwinkle 1.8s infinite alternate;
+}
+
+@keyframes sparkleTwinkle {
+  0% { transform: scale(0.85) rotate(0deg); opacity: 0.7; }
+  100% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+}
+
+/* Kotak Event (Tanggal, Waktu, Lokasi) Sesuai Tema Floral */
+.event-box {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(99, 119, 72, 0.35);
+  border-radius: 18px;
+  padding: 10px 14px 10px;
+  box-shadow: 0 4px 15px rgba(99, 119, 72, 0.08);
+}
+
+.event-header-day {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--olive-green);
+  margin-bottom: 2px;
+}
+
+.event-datetime-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 3px 0 7px;
+  border-bottom: 1px dashed rgba(217, 125, 143, 0.35);
+  margin-bottom: 7px;
+}
+
+.datetime-col {
+  color: var(--text-dark);
+}
+
+.month-col {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark-pink);
+}
+
+.date-col {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 12px;
+  border-left: 1.5px solid rgba(99, 119, 72, 0.35);
+  border-right: 1.5px solid rgba(99, 119, 72, 0.35);
+  color: var(--dark-green);
+}
+
+.time-col {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--olive-green);
+}
+
+.event-location {
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.loc-icon {
+  color: var(--primary-pink);
+  font-size: 0.9rem;
+}
+
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--olive-green), #4e6035);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(99, 119, 72, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.btn-maps:hover {
+  background: var(--dark-green);
+  transform: translateY(-1px);
+}
+
+/* Penutup */
+.closing-group {
+  margin-top: 2px;
+}
+
+.closing-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.closing-family {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-top: 1px;
+}
+
+/* ===================================================
+   FLOATING AUDIO CONTROL
+   =================================================== */
+.audio-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-pink);
+  border: 1.5px solid var(--primary-pink);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 9999;
+  transition: var(--transition-smooth);
+}
+
+.audio-btn.hide {
+  display: none;
+}
+
+.audio-btn i {
+  font-size: 1.25rem;
+}
+
+.disc-spin {
+  animation: discSpin 4s linear infinite;
+}
+
+.disc-paused {
+  animation-play-state: paused;
+}
+
+@keyframes discSpin {
+  100% { transform: rotate(360deg); }
+}
